@@ -13,5 +13,15 @@ class HomeController < ApplicationController
     @output1 = maple.asciify(@text1)
     @output2 = maple.asciify(@text2)
     @output3 = maple.asciify(@text3)
+    
+    
+    q=Question.new
+    q.select_name = params[:input_font]
+    q.name = params[:input_text1]
+    q.email = params[:input_text2]
+    q.phone_num = params[:input_text3]
+    q.save
+    
+    @questions=Question.all
   end
 end
